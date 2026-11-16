@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="panah">→</string>
+    <string name="LOST">1. LOST</string>
+    <string name="FOUND">2. FOUND</string>
+    <string name="RETURN">3. RETURNED</string>
+    <string name="text_alur_pelacakan_home">Alur Pelacakan Status Terpusat</string>
+    <string name="text_hint_search">Cari KTM, Tumbler, Charger, Lokasi...</string>
+    <string name="image_button_pesan">Pesan Mahasiswa</string>
+    <string name="image_button_notif">Notifikasi</string>
+    <string name="text_semua">Semua</string>
+    <string name="text_found">Found (Ditemukan)</string>
+    <string name="text_area_campus">Area Kampus</string>
+    <string name="text_lost">Lost (Hilang)</string>
+    <string name="text_returned">Returned (Kembali)</string>
+    <string name="lost_and_found_hub">LOST AND FOUND HUB</string>
+    <string name="campusfind">CampusFind</string>
 </resources>
