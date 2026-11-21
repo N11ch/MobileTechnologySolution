@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_view_item" android:title="@string/action_view_item" />
+    <item android:id="@+id/action_mark_returned" android:title="@string/detail_mark_returned" />
+    <item android:id="@+id/action_report_user" android:title="@string/action_report_user" />
+    <item android:id="@+id/action_block_user" android:title="@string/action_block_user" />
+</menu>

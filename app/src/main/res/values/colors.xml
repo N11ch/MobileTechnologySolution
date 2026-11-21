@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="sky_blue">#A4DFFD</color>
-    <color name="weightened_sky_blue">#0463CA</color>
-    <color name="sky">#38A9F0</color>
+        <!-- Navy / Blue : brand -->
+        <color name="cf_navy_900">#133673</color>      <!-- logo, judul, chip "All" -->
+        <color name="cf_navy_700">#304F8C</color>      <!-- tombol utama (Sign In, Next, Post Item) -->
+        <color name="cf_blue_300">#96C0FE</color>      <!-- FAB Post, bubble chat keluar -->
+        <color name="cf_blue_100">#DAE7FC</color>
+
+        <!-- Lavender : tombol/ikon netral, chip off -->
+        <color name="cf_lavender_100">#EDECFF</color>
+        <color name="cf_lavender_200">#E6E6FF</color>
+
+        <!-- Surface & teks -->
+        <color name="cf_background">#FAF8FF</color>
+        <color name="cf_surface">#FFFFFF</color>
+        <color name="cf_ink">#1B1B2F</color>
+        <color name="cf_ink_muted">#6B6E80</color>
+        <color name="cf_hint">#8B8DA0</color>
+        <color name="cf_divider">#E4E3F2</color>
+        <color name="cf_on_dark">#FFFFFF</color>
+        <color name="cf_scrim">#99000000</color>
+
+        <!-- Status barang: Lost / Found / Returned -->
+        <color name="cf_lost_bg">#FFB4A9</color>
+        <color name="cf_lost_text">#93000A</color>
+        <color name="cf_lost_soft">#FCDDDD</color>
+        <color name="cf_found_bg">#A8E6CF</color>
+        <color name="cf_found_text">#0B5B43</color>
+        <color name="cf_found_soft">#D9F1EC</color>
+        <color name="cf_returned_bg">#B8D2FA</color>
+        <color name="cf_returned_text">#133673</color>
+        <color name="cf_returned_soft">#DAE7FC</color>
+
+        <!-- Semantik -->
+        <color name="cf_error">#BA1A1A</color>
+        <color name="cf_success">#1E8E6A</color>
+        <color name="cf_banner_mint">#DCECEA</color>
+        <color name="cf_unread_dot">#336097</color>
+
+        <!-- Swatch pilihan warna barang (form posting) -->
+        <color name="swatch_black">#1C1C1E</color>
+        <color name="swatch_white">#FFFFFF</color>
+        <color name="swatch_gray">#9E9E9E</color>
+        <color name="swatch_red">#E53935</color>
+        <color name="swatch_orange">#FB8C00</color>
+        <color name="swatch_yellow">#FDD835</color>
+        <color name="swatch_green">#43A047</color>
+        <color name="swatch_blue">#1E88E5</color>
+        <color name="swatch_purple">#8E24AA</color>
+        <color name="swatch_pink">#F06292</color>
+        <color name="swatch_brown">#6D4C41</color>
+        <color name="swatch_gold">#D4AF37</color>
+
+        <!-- Placeholder peta (sebelum Google Maps termuat) -->
+        <color name="map_bg">#E9EDFB</color>
+        <color name="map_park">#CDEFD9</color>
 </resources>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/map_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemMapActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map_fragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/space_16"
+            android:background="@drawable/bg_circle"
+            android:contentDescription="@string/cd_back"
+            android:elevation="4dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/cf_ink" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_campus"
+            style="@style/Widget.CampusFind.Button.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:minHeight="0dp"
+            android:text="@string/campus_kemanggisan"
+            app:icon="@drawable/ic_school"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+        <ImageButton
+            android:id="@+id/btn_compass"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
+            android:layout_marginEnd="@dimen/screen_padding"
+            android:background="@drawable/bg_circle"
+            android:contentDescription="@string/cd_compass"
+            android:elevation="4dp"
+            android:src="@drawable/ic_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_back"
+            app:tint="@color/cf_lost_text" />
+
+        <TextView
+            android:id="@+id/tv_map_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_pill"
+            android:drawablePadding="@dimen/space_8"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingVertical="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.CampusFind.Label"
+            android:textColor="@color/cf_navy_900"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_school"
+            app:drawableTint="@color/cf_navy_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_back"
+            tools:text="BINUS Kemanggisan Campus Map" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_my_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/screen_padding"
+            android:layout_marginBottom="@dimen/space_16"
+            android:contentDescription="@string/cd_my_location"
+            android:src="@drawable/ic_my_location"
+            app:backgroundTint="@color/cf_blue_300"
+            app:layout_constraintBottom_toTopOf="@id/card_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/cf_navy_900" />
+
+        <!-- Kartu info bawah -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_12"
+            android:layout_marginBottom="@dimen/space_12"
+            app:cardBackgroundColor="@color/cf_surface"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/space_12"
+                    android:background="@drawable/bg_sheet_handle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_item_photo"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_image_placeholder"
+                        android:contentDescription="@string/cd_item_photo"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Rounded12" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_place"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall"
+                            tools:text="Library 3rd Floor, Building B" />
+
+                        <TextView
+                            android:id="@+id/tv_distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:drawablePadding="@dimen/space_4"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.CampusFind.BodySmall"
+                            app:drawableStartCompat="@drawable/ic_navigation"
+                            app:drawableTint="@color/cf_navy_700"
+                            tools:text="120 m away (2 min walk)" />
+
+                        <TextView
+                            android:id="@+id/tv_place_note"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:background="@drawable/bg_rounded_12"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:drawablePadding="@dimen/space_4"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="@dimen/space_8"
+                            android:paddingVertical="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                            app:drawableStartCompat="@drawable/ic_location"
+                            app:drawableTint="@color/cf_lost_text"
+                            tools:text="Found on study table near east window" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_get_directions"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_8"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/cf_navy_900"
+                        android:text="@string/map_get_directions"
+                        app:icon="@drawable/ic_navigation" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_chat_finder"
+                        style="@style/Widget.CampusFind.Button.Tonal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/cf_blue_100"
+                        android:text="@string/map_chat_finder"
+                        app:icon="@drawable/ic_chat"
+                        app:iconGravity="textEnd" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

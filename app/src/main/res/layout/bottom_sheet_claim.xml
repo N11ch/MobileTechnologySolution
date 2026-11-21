@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_sheet_handle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:text="@string/claim_title"
+            android:textAppearance="@style/TextAppearance.CampusFind.Title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:text="@string/claim_subtitle"
+            android:textAppearance="@style/TextAppearance.CampusFind.BodySmall" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_claim_proof"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            app:counterEnabled="true"
+            app:counterMaxLength="200">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_claim_proof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/claim_hint"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLength="200"
+                android:minLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_claim_attach"
+            style="@style/Widget.CampusFind.Button.Tonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:text="@string/claim_attach"
+            app:icon="@drawable/ic_camera"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_claim_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:text="@string/claim_submit"
+            app:icon="@drawable/ic_send" />
+
+</LinearLayout>

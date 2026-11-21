@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/space_8">
+
+        <ImageButton
+            android:id="@+id/btn_prev_page"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_lavender_100"
+            android:contentDescription="@string/cd_previous_page"
+            android:src="@drawable/ic_chevron_left"
+            app:tint="@color/cf_ink_muted" />
+
+        <TextView
+            android:id="@+id/tv_page_1"
+            style="@style/Widget.CampusFind.Pagination"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_navy_900"
+            android:text="1"
+            android:textColor="@color/cf_on_dark"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tv_page_2"
+            style="@style/Widget.CampusFind.Pagination"
+            android:text="2"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tv_page_3"
+            style="@style/Widget.CampusFind.Pagination"
+            android:text="3"
+            tools:ignore="HardcodedText" />
+
+        <ImageButton
+            android:id="@+id/btn_next_page"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_lavender_100"
+            android:contentDescription="@string/cd_next_page"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="@color/cf_navy_900" />
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@android:color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageViewerActivity">
+
+        <ImageView
+            android:id="@+id/iv_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/cd_chat_photo"
+            android:scaleType="fitCenter" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/space_16"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_scrim"
+            android:contentDescription="@string/cd_close"
+            android:src="@drawable/ic_close"
+            app:tint="@color/cf_on_dark" />
+
+        <TextView
+            android:id="@+id/tv_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/cf_scrim"
+            android:padding="@dimen/space_16"
+            android:textAppearance="@style/TextAppearance.CampusFind.Body"
+            android:textColor="@color/cf_on_dark"
+            tools:text="Found photo confirmation · 14:19" />
+</FrameLayout>

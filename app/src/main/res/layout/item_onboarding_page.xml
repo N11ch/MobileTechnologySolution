@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/space_32">
+
+    <ImageView
+        android:id="@+id/iv_illustration"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ill_onboarding" />
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_pill"
+        android:backgroundTint="@color/cf_blue_100"
+        android:drawablePadding="@dimen/space_8"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/space_12"
+        android:paddingVertical="@dimen/space_4"
+        android:text="@string/onboarding_tag"
+        android:textAppearance="@style/TextAppearance.CampusFind.Label"
+        android:textColor="@color/cf_navy_700"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/ic_campaign"
+        app:drawableTint="@color/cf_navy_700" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:textAppearance="@style/TextAppearance.CampusFind.Headline"
+        android:textColor="@color/cf_ink"
+        tools:text="Report Lost Items" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:gravity="center"
+        android:minLines="3"
+        android:textAppearance="@style/TextAppearance.CampusFind.Body"
+        android:textColor="@color/cf_ink_muted"
+        tools:text="Misplaced something on campus? Post the details and let fellow BINUSians help you find it quickly." />
+</LinearLayout>

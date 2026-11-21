@@ -1,9 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Theme.CampusFind" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/cf_navy_700</item>
+        <item name="colorOnPrimary">@color/cf_on_dark</item>
+        <item name="colorPrimaryContainer">@color/cf_blue_100</item>
+        <item name="colorOnPrimaryContainer">@color/cf_navy_900</item>
+        <item name="colorSecondary">@color/cf_navy_900</item>
+        <item name="colorOnSecondary">@color/cf_on_dark</item>
+        <item name="colorSecondaryContainer">@color/cf_lavender_100</item>
+        <item name="colorOnSecondaryContainer">@color/cf_navy_900</item>
+        <item name="colorTertiary">@color/cf_blue_300</item>
+        <item name="colorSurface">@color/cf_surface</item>
+        <item name="colorOnSurface">@color/cf_ink</item>
+        <item name="colorOnSurfaceVariant">@color/cf_ink_muted</item>
+        <item name="colorSurfaceVariant">@color/cf_lavender_100</item>
+        <item name="colorOutline">@color/cf_divider</item>
+        <item name="colorError">@color/cf_error</item>
+        <item name="android:colorBackground">@color/cf_background</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/cf_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+        <item name="textInputStyle">@style/Widget.CampusFind.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.CampusFind.Button</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.CampusFind.BottomSheetDialog</item>
     </style>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <!-- Splash screen: gradient behind the window while the first frame loads -->
+    <style name="Theme.CampusFind.Splash" parent="Theme.CampusFind">
+        <item name="android:windowBackground">@drawable/bg_splash_gradient</item>
+    </style>
+
+    <style name="ThemeOverlay.CampusFind.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.CampusFind.BottomSheet</item>
+    </style>
 </resources>

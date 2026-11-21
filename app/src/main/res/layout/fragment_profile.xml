@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingVertical="@dimen/space_8">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_title"
+            android:textAppearance="@style/TextAppearance.CampusFind.Headline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_settings"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/cf_ink" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_32">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding">
+
+            <!-- Kartu profil -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_20">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_avatar"
+                            android:layout_width="@dimen/avatar_large"
+                            android:layout_height="@dimen/avatar_large"
+                            android:background="@color/cf_lavender_100"
+                            android:contentDescription="@string/cd_profile_photo"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_person"
+                            app:contentPadding="@dimen/space_20"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Circle"
+                            app:tint="@color/cf_navy_700" />
+
+                        <ImageButton
+                            android:id="@+id/btn_change_photo"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="bottom|end"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/cf_navy_900"
+                            android:contentDescription="@string/cd_change_photo"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_camera"
+                            app:tint="@color/cf_on_dark" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                        tools:text="Rina Putri" />
+
+                    <TextView
+                        android:id="@+id/tv_nim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.CampusFind.BodySmall"
+                        tools:text="NIM 2501234567 · Computer Science" />
+
+                    <TextView
+                        android:id="@+id/tv_verified"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:background="@drawable/bg_pill"
+                        android:backgroundTint="@color/cf_found_bg"
+                        android:drawablePadding="@dimen/space_4"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12"
+                        android:paddingVertical="@dimen/space_4"
+                        android:text="@string/profile_verified"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                        android:textColor="@color/cf_found_text"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@drawable/ic_verified"
+                        app:drawableTint="@color/cf_found_text" />
+
+                    <TextView
+                        android:id="@+id/tv_campus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:drawablePadding="@dimen/space_4"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                        app:drawableStartCompat="@drawable/ic_location"
+                        app:drawableTint="@color/cf_navy_700"
+                        tools:text="Kemanggisan Campus" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_edit_profile"
+                        style="@style/Widget.CampusFind.Button.Tonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:text="@string/profile_edit"
+                        app:icon="@drawable/ic_edit"
+                        app:iconGravity="textStart" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Statistik -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_16">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/cf_blue_100"
+                            android:importantForAccessibility="no"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_description"
+                            app:tint="@color/cf_navy_700" />
+
+                        <TextView
+                            android:id="@+id/tv_stat_posted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                            tools:text="12" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stat_posted"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/cf_found_soft"
+                            android:importantForAccessibility="no"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_favorite"
+                            app:tint="@color/cf_found_text" />
+
+                        <TextView
+                            android:id="@+id/tv_stat_found"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                            tools:text="12" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stat_found"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:importantForAccessibility="no"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="@color/cf_navy_900" />
+
+                        <TextView
+                            android:id="@+id/tv_stat_returned"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                            tools:text="12" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stat_returned"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Menu -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/row_my_posts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_16">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_rounded_12"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:importantForAccessibility="no"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_description"
+                            app:tint="@color/cf_navy_700" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_12"
+                            android:layout_weight="1"
+                            android:text="@string/profile_my_posts"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+                        <TextView
+                            android:id="@+id/tv_my_posts_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/space_8"
+                            android:background="@drawable/bg_pill"
+                            android:backgroundTint="@color/cf_blue_100"
+                            android:paddingHorizontal="@dimen/space_8"
+                            android:paddingVertical="2dp"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                            android:textColor="@color/cf_navy_900"
+                            tools:text="6 posts" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/cf_ink_muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/row_saved"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_16">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_rounded_12"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:importantForAccessibility="no"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_bookmark_border"
+                            app:tint="@color/cf_navy_700" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_12"
+                            android:layout_weight="1"
+                            android:text="@string/profile_saved"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+                        <TextView
+                            android:id="@+id/tv_saved_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/space_8"
+                            android:background="@drawable/bg_pill"
+                            android:backgroundTint="@color/cf_blue_100"
+                            android:paddingHorizontal="@dimen/space_8"
+                            android:paddingVertical="2dp"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                            android:textColor="@color/cf_navy_900"
+                            tools:text="6 posts" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/cf_ink_muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/row_notif_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_16">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_rounded_12"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:importantForAccessibility="no"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_notifications"
+                            app:tint="@color/cf_navy_700" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_12"
+                            android:layout_weight="1"
+                            android:text="@string/profile_notif_settings"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/cf_ink_muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/row_help"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_16">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_rounded_12"
+                            android:backgroundTint="@color/cf_lavender_100"
+                            android:importantForAccessibility="no"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_help"
+                            app:tint="@color/cf_navy_700" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_12"
+                            android:layout_weight="1"
+                            android:text="@string/profile_help"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/cf_ink_muted" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_logout"
+                style="@style/Widget.CampusFind.Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/profile_logout"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart" />
+
+            <TextView
+                android:id="@+id/tv_app_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                tools:text="CampusFind v1.0.0" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

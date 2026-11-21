@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_sheet_handle" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/screen_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/filter_title"
+                android:textAppearance="@style/TextAppearance.CampusFind.Title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_filter_reset"
+                style="@style/Widget.CampusFind.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:text="@string/filter_reset" />
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/screen_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/filter_status" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:selectionRequired="true"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_all"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/status_all" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_lost"
+                        style="@style/Widget.CampusFind.Chip.Lost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_lost" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_found"
+                        style="@style/Widget.CampusFind.Chip.Found"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_found" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_returned"
+                        style="@style/Widget.CampusFind.Chip.Returned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_returned" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/filter_campus" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_campus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_campus_kemanggisan"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/campus_kemanggisan" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_campus_alam_sutera"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/campus_alam_sutera" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_campus_bekasi"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/campus_bekasi" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/filter_category" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_electronics"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_electronics" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_wallet_cards"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_wallet_cards" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_bags"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_bags" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_keys"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_keys" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_documents"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_documents" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_clothing"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_clothing" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_books"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_books" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_accessories"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_accessories" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_cat_other"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category_other" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/filter_color" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:singleLine="false"
+                    >
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_black"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_black"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_black"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_white"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_white"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_white"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_gray"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_gray"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_gray"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_red"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_red"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_red"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_orange"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_orange"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_orange"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_yellow"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_yellow"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_yellow"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_green"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_green"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_green"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_blue"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_blue"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_blue"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_purple"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_purple"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_purple"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_pink"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_pink"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_pink"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_brown"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_brown"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_brown"
+                        app:chipIconVisible="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_filter_color_gold"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_gold"
+                        app:chipIcon="@drawable/bg_swatch"
+                        app:chipIconSize="16dp"
+                        app:chipIconTint="@color/swatch_gold"
+                        app:chipIconVisible="true" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/filter_date" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:selectionRequired="true"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_date_any"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/filter_date_any" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_date_today"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_date_today" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_date_7d"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_date_7d" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_date_30d"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_date_30d" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView
+                    style="@style/Widget.CampusFind.FieldLabel"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/filter_sort" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_filter_sort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="8dp"
+                    app:selectionRequired="true"
+                    app:singleLine="false"
+                    app:singleSelection="true">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_sort_newest"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/filter_sort_newest" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_sort_nearest"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_sort_nearest" />
+                </com.google.android.material.chip.ChipGroup>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_filter_apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_padding"
+            android:text="@string/filter_apply" />
+
+</LinearLayout>

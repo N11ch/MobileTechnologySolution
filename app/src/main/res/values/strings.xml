@@ -1,18 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="panah">→</string>
-    <string name="LOST">1. LOST</string>
-    <string name="FOUND">2. FOUND</string>
-    <string name="RETURN">3. RETURNED</string>
-    <string name="text_alur_pelacakan_home">Alur Pelacakan Status Terpusat</string>
-    <string name="text_hint_search">Cari KTM, Tumbler, Charger, Lokasi...</string>
-    <string name="image_button_pesan">Pesan Mahasiswa</string>
-    <string name="image_button_notif">Notifikasi</string>
-    <string name="text_semua">Semua</string>
-    <string name="text_found">Found (Ditemukan)</string>
-    <string name="text_area_campus">Area Kampus</string>
-    <string name="text_lost">Lost (Hilang)</string>
-    <string name="text_returned">Returned (Kembali)</string>
-    <string name="lost_and_found_hub">LOST AND FOUND HUB</string>
-    <string name="campusfind">CampusFind</string>
+
+    <!-- App -->
+    <string name="app_name">CampusFind</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_post">Post</string>
+    <string name="nav_chat">Chat</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Status (Lost / Found / Returned) -->
+    <string name="status_all">All</string>
+    <string name="status_lost">Lost</string>
+    <string name="status_found">Found</string>
+    <string name="status_returned">Returned</string>
+
+    <!-- Splash & Onboarding -->
+    <string name="splash_tagline">Find it. Return it. Together.</string>
+    <string name="splash_students_only">BINUS University · Students Only</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_tag">Campus Lost &amp; Found</string>
+    <string name="onboarding_step_format">STEP %1$d OF %2$d</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_1_title">Report Lost Items</string>
+    <string name="onboarding_1_desc">Misplaced something on campus? Post the details and let fellow BINUSians help you find it quickly.</string>
+    <string name="onboarding_2_title">Chat &amp; Verify</string>
+    <string name="onboarding_2_desc">Message the finder or owner directly and share photos to confirm the item before you meet.</string>
+    <string name="onboarding_3_title">Get It Returned</string>
+    <string name="onboarding_3_desc">Track every item from Lost to Found to Returned, and get notified at each step.</string>
+
+    <!-- Login -->
+    <string name="login_badge">BINUS UNIVERSITY</string>
+    <string name="login_title">Welcome to CampusFind</string>
+    <string name="login_subtitle">Sign in with your student account to continue</string>
+    <string name="login_label_nim">Student ID (NIM) or Email</string>
+    <string name="login_hint_nim">e.g. 2501234567 or name@binus.ac.id</string>
+    <string name="login_label_password">Password</string>
+    <string name="login_hint_password">Enter your password</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_or">OR</string>
+    <string name="login_sso">Sign in with BINUS SSO</string>
+    <string name="login_community_title">Protected Student Community</string>
+    <string name="login_community_body">Only registered BINUSians can post and claim campus items.</string>
+    <string name="login_footer">Only active BINUS students can use CampusFind.</string>
+    <string name="login_error_empty">Please enter your NIM and password.</string>
+    <string name="login_error_invalid">NIM or password is incorrect.</string>
+
+    <!-- Header & Home -->
+    <string name="header_subtitle_default">BINUS University</string>
+    <string name="home_search_hint">Search lost &amp; found items...</string>
+    <string name="home_greeting_format">Hi, %1$s 👋</string>
+    <string name="home_see_all">See all campus items</string>
+    <string name="home_returned_stat_format">%1$d items returned this semester at BINUS</string>
+
+    <!-- Search & Filter -->
+    <string name="search_hint">Search items, places, colors...</string>
+    <string name="search_recent">RECENT SEARCHES</string>
+    <string name="search_clear">Clear</string>
+    <string name="search_edit">Edit</string>
+    <string name="search_no_results_title">No items found</string>
+    <string name="search_no_results_msg">Try different keywords or remove some filters.</string>
+    <string name="filter_title">Filters</string>
+    <string name="filter_reset">Reset</string>
+    <string name="filter_apply">Apply filters</string>
+    <string name="filter_status">Status</string>
+    <string name="filter_campus">Campus</string>
+    <string name="filter_category">Category</string>
+    <string name="filter_color">Color</string>
+    <string name="filter_date">Date posted</string>
+    <string name="filter_sort">Sort by</string>
+    <string name="filter_date_any">Any time</string>
+    <string name="filter_date_today">Today</string>
+    <string name="filter_date_7d">7 days</string>
+    <string name="filter_date_30d">30 days</string>
+    <string name="filter_sort_newest">Newest</string>
+    <string name="filter_sort_nearest">Nearest to me</string>
+
+    <!-- Campus -->
+    <string name="campus_kemanggisan">Kemanggisan</string>
+    <string name="campus_alam_sutera">Alam Sutera</string>
+    <string name="campus_bekasi">Bekasi</string>
+
+    <!-- Category -->
+    <string name="category_electronics">Electronics</string>
+    <string name="category_wallet_cards">Wallet &amp; Cards</string>
+    <string name="category_bags">Bags</string>
+    <string name="category_keys">Keys</string>
+    <string name="category_documents">Documents &amp; IDs</string>
+    <string name="category_clothing">Clothing</string>
+    <string name="category_books">Books &amp; Stationery</string>
+    <string name="category_accessories">Accessories</string>
+    <string name="category_other">Other</string>
+
+    <!-- Color -->
+    <string name="color_black">Black</string>
+    <string name="color_white">White</string>
+    <string name="color_gray">Gray / Silver</string>
+    <string name="color_red">Red</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_brown">Brown</string>
+    <string name="color_gold">Gold</string>
+
+    <!-- Shape -->
+    <string name="shape_rectangle">Rectangle</string>
+    <string name="shape_round">Round</string>
+    <string name="shape_square">Square</string>
+    <string name="shape_flat">Flat / Thin</string>
+    <string name="shape_cylinder">Cylinder</string>
+    <string name="shape_irregular">Irregular</string>
+
+    <!-- Post item -->
+    <string name="post_badge">Post Item</string>
+    <string name="post_back">Back</string>
+    <string name="post_next_photo">Next: Photo Upload</string>
+    <string name="post_next_location">Next: Location</string>
+    <string name="post_submit">Post Item Now</string>
+    <string name="post_title_step1">Post Item Step 1: Item Category &amp; Status</string>
+    <string name="post_title_step2">Post Item Step 2: Details &amp; Photo Upload</string>
+    <string name="post_title_step3">Post Item Step 3: Location &amp; Date</string>
+    <string name="post_step_format">Step %1$d of 3</string>
+    <string name="post_step_2_of_3">Step 2 of 3</string>
+    <string name="post_step_3_of_3">Step 3 of 3</string>
+    <string name="post_visible_note">Immediately visible to verified BINUS students.</string>
+    <string name="post_step1_intro">Let\'s start by choosing what happened.</string>
+    <string name="post_type_lost">I Lost It</string>
+    <string name="post_type_lost_sub">Looking for my missing item</string>
+    <string name="post_type_found">I Found It</string>
+    <string name="post_type_found_sub">Picked up someone\'s item</string>
+    <string name="post_motivation_found">Campus heroes return most lost items within 24 hours. Thank you!</string>
+    <string name="post_motivation_lost">Post clear details so finders can reach you quickly.</string>
+    <string name="post_required">Required</string>
+    <string name="post_optional">Optional</string>
+    <string name="post_color_hint">Select all that apply</string>
+    <string name="post_label_title">Item Title</string>
+    <string name="post_hint_title">e.g. Black Leather Wallet</string>
+    <string name="post_label_category">Category</string>
+    <string name="post_label_color">Color</string>
+    <string name="post_label_shape">Shape</string>
+    <string name="post_label_type">Item Type</string>
+    <string name="post_hint_type">e.g. Bifold wallet, Smartphone, Backpack</string>
+    <string name="post_label_brand">Brand (optional)</string>
+    <string name="post_hint_brand">e.g. Apple, Samsonite</string>
+    <string name="post_label_details">Key Details</string>
+    <string name="post_hint_details">Describe the item: contents, condition, where exactly...</string>
+    <string name="post_label_marks">Distinguishing marks (optional)</string>
+    <string name="post_hint_marks">Scratches, stickers, engravings, name tags</string>
+    <string name="post_label_hidden">Hidden detail for verification (optional)</string>
+    <string name="post_hint_hidden">e.g. A photo inside the wallet</string>
+    <string name="post_hidden_helper">Not shown publicly. The owner must describe it to claim the item.</string>
+    <string name="post_upload_title">Upload photos</string>
+    <string name="post_tap_to_add">Tap to add photos</string>
+    <string name="post_tap_to_add_sub">Clear photos help the owner verify faster. Up to 3 photos.</string>
+    <string name="post_camera">Camera</string>
+    <string name="post_gallery">Gallery</string>
+    <string name="post_uploaded_photos">Uploaded photos</string>
+    <string name="post_photo_count_format">%1$d / 3 attached</string>
+    <string name="post_add_photo_format">Add photo %1$d</string>
+    <string name="post_photo_main">Main</string>
+    <string name="post_photo_tip">Helpful tip: take photos from several angles and in good light.</string>
+    <string name="post_where_when">Where &amp; when</string>
+    <string name="post_use_gps">Use GPS</string>
+    <string name="post_selected_campus">Selected campus</string>
+    <string name="post_region">Greater Jakarta</string>
+    <string name="post_spot_label_found">Found at</string>
+    <string name="post_spot_label_lost">Last seen at</string>
+    <string name="post_hint_spot">e.g. Library 3rd floor</string>
+    <string name="post_date_time">Date &amp; estimated time</string>
+    <string name="post_date">Date</string>
+    <string name="post_time">Time</string>
+    <string name="post_match_alerts">Match alerts</string>
+    <string name="post_match_alerts_sub">Get notified when a similar item is posted</string>
+    <string name="post_error_title">Please enter an item title.</string>
+    <string name="post_error_category">Please choose a category.</string>
+
+    <!-- Item detail & claim -->
+    <string name="detail_title">Item Detail</string>
+    <string name="detail_verified">Verified</string>
+    <string name="detail_description">ITEM DESCRIPTION</string>
+    <string name="attr_color">Color</string>
+    <string name="attr_shape">Shape</string>
+    <string name="attr_type">Type</string>
+    <string name="attr_brand">Brand</string>
+    <string name="attr_marks">Marks</string>
+    <string name="detail_journey">ITEM STATUS JOURNEY</string>
+    <string name="detail_journey_step_format">Step %1$d of 3</string>
+    <string name="detail_map">Map</string>
+    <string name="detail_chat">Chat</string>
+    <string name="detail_this_is_mine">This is Mine</string>
+    <string name="detail_i_found_this">I Found This</string>
+    <string name="detail_claim_note">Claims require student verification.</string>
+    <string name="detail_mark_returned">Mark as Returned</string>
+    <string name="claim_title">Claim this item</string>
+    <string name="claim_subtitle">Describe something only the owner would know.</string>
+    <string name="claim_hint">e.g. Wallpaper on the phone, a sticker inside the bag...</string>
+    <string name="claim_attach">Attach proof photo (optional)</string>
+    <string name="claim_submit">Send claim</string>
+
+    <!-- Map -->
+    <string name="map_get_directions">Get Directions</string>
+    <string name="map_chat_finder">Chat Finder</string>
+
+    <!-- Chat -->
+    <string name="chat_list_title">Messages</string>
+    <string name="chat_search_hint">Search conversations...</string>
+    <string name="chat_filter_unread">Unread</string>
+    <string name="chat_count_format">Showing %1$d of %2$d active chats</string>
+    <string name="chat_archived_format">Archived chats (%1$d) →</string>
+    <string name="chat_view">View</string>
+    <string name="chat_type_message">Type a message...</string>
+    <string name="chat_quick_where">Where can we meet?</string>
+    <string name="chat_quick_thanks">Thank you!</string>
+    <string name="chat_quick_on_my_way">On my way</string>
+    <string name="chat_typing_format">%1$s is typing…</string>
+    <string name="chat_status_active">Active conversation</string>
+    <string name="attach_title">Send a photo</string>
+    <string name="attach_subtitle">Photos help confirm the item matches before you meet.</string>
+    <string name="empty_title">Nothing here yet</string>
+    <string name="empty_message">Items and updates will show up here.</string>
+    <string name="empty_action">Post an item</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notif_filter_matches">Matches</string>
+    <string name="notif_filter_messages">Messages</string>
+    <string name="notif_filter_status">Status</string>
+    <string name="notif_push_active">Push notifications active</string>
+    <string name="notif_change">Change</string>
+    <string name="notif_mark_all_read">Mark all as read</string>
+    <string name="notif_settings_title">Notification Settings</string>
+    <string name="notif_settings_channels">CHANNELS</string>
+    <string name="notif_settings_topics">NOTIFY ME ABOUT</string>
+    <string name="notif_set_push">Push notifications</string>
+    <string name="notif_set_push_sub">Alerts on your phone</string>
+    <string name="notif_set_email">Email alerts</string>
+    <string name="notif_set_email_sub">Summary sent to your student email</string>
+    <string name="notif_set_matches">Possible matches</string>
+    <string name="notif_set_matches_sub">When a similar item is posted</string>
+    <string name="notif_set_messages">New messages</string>
+    <string name="notif_set_messages_sub">Chats from finders and owners</string>
+    <string name="notif_set_status">Status updates</string>
+    <string name="notif_set_status_sub">Lost, Found and Returned changes</string>
+    <string name="notif_set_announce">Campus announcements</string>
+    <string name="notif_set_announce_sub">Tips and news from CampusFind</string>
+
+    <!-- Profile & My Posts -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_verified">Verified BINUSian</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="stat_posted">Posted</string>
+    <string name="stat_found">Found</string>
+    <string name="stat_returned">Returned</string>
+    <string name="profile_my_posts">My Posts</string>
+    <string name="profile_saved">Saved Items</string>
+    <string name="profile_notif_settings">Notification Settings</string>
+    <string name="profile_help">Help &amp; Support</string>
+    <string name="profile_logout">Log Out</string>
+    <string name="profile_logout_confirm">Log out of CampusFind?</string>
+    <string name="profile_posts_count_format">%1$d posts</string>
+    <string name="profile_saved_count_format">%1$d items</string>
+    <string name="my_posts_title">My Posts</string>
+    <string name="my_posts_new">Post New Item</string>
+    <string name="my_posts_showing_format">Showing %1$d of %2$d posts</string>
+    <string name="action_share">Share</string>
+    <string name="action_save">Save</string>
+    <string name="action_report">Report post</string>
+    <string name="action_view_item">View item</string>
+    <string name="action_report_user">Report user</string>
+    <string name="action_block_user">Block user</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_mark_found">Mark as Found</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Content descriptions (aksesibilitas) -->
+    <string name="cd_back">Back</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_clear">Clear</string>
+    <string name="cd_more">More options</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_filter">Filter</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_profile">Profile</string>
+    <string name="cd_profile_photo">Profile photo</string>
+    <string name="cd_change_photo">Change profile photo</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_post_item">Post an item</string>
+    <string name="cd_item_photo">Item photo</string>
+    <string name="cd_chat_photo">Photo in chat</string>
+    <string name="cd_save_item">Save item</string>
+    <string name="cd_remove_photo">Remove photo</string>
+    <string name="cd_attach_photo">Attach photo</string>
+    <string name="cd_send">Send message</string>
+    <string name="cd_compass">Reset map orientation</string>
+    <string name="cd_my_location">My location</string>
+    <string name="cd_previous_page">Previous page</string>
+    <string name="cd_next_page">Next page</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

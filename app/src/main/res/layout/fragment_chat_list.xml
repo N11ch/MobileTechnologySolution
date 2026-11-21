@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChatListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingVertical="@dimen/space_8">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chat_list_title"
+            android:textAppearance="@style/TextAppearance.CampusFind.Headline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_search_chat"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_search"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/cf_ink" />
+
+        <ImageButton
+            android:id="@+id/btn_profile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_navy_900"
+            android:contentDescription="@string/cd_profile"
+            android:src="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/cf_on_dark" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_32">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                app:cardCornerRadius="@dimen/radius_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_12"
+                    android:paddingEnd="@dimen/space_4">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/cf_ink_muted" />
+
+                    <EditText
+                        android:id="@+id/et_search_chat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/chat_search_hint"
+                        android:imeOptions="actionSearch"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/space_8"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Body"
+                        android:textColorHint="@color/cf_hint" />
+
+                    <ImageButton
+                        android:id="@+id/btn_clear_chat_search"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/cd_clear"
+                        android:src="@drawable/ic_close"
+                        app:tint="@color/cf_ink_muted" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_chat_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="@dimen/space_8"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_chat_all"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/status_all" />
+
+                    <!-- Jumlah belum dibaca: isi lewat kode, mis. "Unread 2" -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_chat_unread"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chat_filter_unread" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_chat_lost"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_lost" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_chat_found"
+                        style="@style/Widget.CampusFind.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_found" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_chats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_chat_room" />
+
+            <include
+                android:id="@+id/empty_state"
+                layout="@layout/layout_empty_state"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4">
+
+                <TextView
+                    android:id="@+id/tv_chat_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawablePadding="@dimen/space_8"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                    app:drawableStartCompat="@drawable/ic_dot"
+                    app:drawableTint="@color/cf_blue_300"
+                    tools:text="Showing 4 of 4 active chats" />
+
+                <TextView
+                    android:id="@+id/btn_archived"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/space_4"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                    android:textColor="@color/cf_navy_900"
+                    android:textSize="12sp"
+                    tools:text="Archived chats (2) →" />
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Warna ikon (iv_icon backgroundTint) diatur dari kode per tipe: Match=mint, Message=blue, Status=lavender. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.CampusFind.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_8"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/radius_medium">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_12">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_found_soft"
+            android:importantForAccessibility="no"
+            android:padding="11dp"
+            android:src="@drawable/ic_auto_awesome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/cf_found_text" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_12"
+            android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_time"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Possible match found" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_title"
+            app:layout_constraintEnd_toStartOf="@id/view_unread"
+            tools:text="2m ago" />
+
+        <!-- Titik belum dibaca -->
+        <View
+            android:id="@+id/view_unread"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_unread_dot"
+            app:layout_constraintBottom_toBottomOf="@id/tv_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_4"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.CampusFind.BodySmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="A Found item near Library matches your lost Wallet." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

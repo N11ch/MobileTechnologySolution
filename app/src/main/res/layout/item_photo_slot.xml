@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Satu slot foto (3 slot di Step 2). Slot kosong -> tampil "Add photo N" (group_add).
+  Slot terisi -> iv_photo + tombol hapus; slot pertama diberi label "Main" (tv_main_label).
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/photo_slot_size"
+    android:layout_weight="1"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/cf_lavender_100"
+    app:cardCornerRadius="@dimen/radius_medium"
+    app:cardElevation="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/group_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_photo_slot"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_circle"
+                android:importantForAccessibility="no"
+                android:padding="@dimen/space_8"
+                android:src="@drawable/ic_add"
+                app:tint="@color/cf_navy_900" />
+
+            <TextView
+                android:id="@+id/tv_add_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                tools:text="Add photo 2" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/cd_item_photo"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btn_remove"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/space_4"
+            android:background="@drawable/bg_circle"
+            android:contentDescription="@string/cd_remove_photo"
+            android:padding="6dp"
+            android:src="@drawable/ic_close"
+            android:visibility="gone"
+            app:tint="@color/cf_ink" />
+
+        <TextView
+            android:id="@+id/tv_main_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/space_8"
+            android:background="@drawable/bg_scrim_pill"
+            android:paddingHorizontal="@dimen/space_8"
+            android:paddingVertical="2dp"
+            android:text="@string/post_photo_main"
+            android:textColor="@color/cf_on_dark"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="gone" />
+    </FrameLayout>
+</com.google.android.material.card.MaterialCardView>

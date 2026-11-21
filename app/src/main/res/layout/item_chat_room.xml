@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Satu baris percakapan. Tag item: pakai warna sesuai status (Lost/Found/Returned) lewat kode. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.CampusFind.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_8"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/radius_medium">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_12">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/avatar_medium"
+            android:layout_height="@dimen/avatar_medium"
+            android:background="@color/cf_blue_100"
+            android:contentDescription="@string/cd_profile_photo"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Circle" />
+
+        <!-- Titik online -->
+        <View
+            android:id="@+id/view_online"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_found_bg"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="@id/iv_avatar" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_12"
+            android:drawablePadding="@dimen/space_4"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall"
+            android:textColor="@color/cf_ink"
+            app:drawableEndCompat="@drawable/ic_verified"
+            app:drawableTint="@color/cf_navy_700"
+            app:layout_constraintEnd_toStartOf="@id/tv_time"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dimas Arya" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="14:22" />
+
+        <TextView
+            android:id="@+id/tv_item_tag"
+            style="@style/Widget.CampusFind.Badge.Found"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_4"
+            android:paddingVertical="2dp"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="Found: Black Leather Wallet" />
+
+        <TextView
+            android:id="@+id/tv_last_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_4"
+            android:layout_marginEnd="@dimen/space_8"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.CampusFind.BodySmall"
+            app:layout_constraintEnd_toStartOf="@id/tv_unread_count"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_tag"
+            tools:text="That's mine! Can we meet at the library lobby?" />
+
+        <!-- Belum dibaca: tampilkan tv_unread_count. Sudah dibaca: tampilkan iv_read_status. -->
+        <TextView
+            android:id="@+id/tv_unread_count"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/cf_navy_900"
+            android:gravity="center"
+            android:textColor="@color/cf_on_dark"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_last_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_last_message"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/iv_read_status"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_done_all"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_last_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_last_message"
+            app:tint="@color/cf_navy_700" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

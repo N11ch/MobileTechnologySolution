@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/cf_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyPostsActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/space_8">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:layout_marginStart="@dimen/space_8"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_back"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="@string/my_posts_title"
+                android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_filter"
+                app:layout_constraintStart_toEndOf="@id/btn_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_filter"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:layout_marginEnd="@dimen/space_8"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_filter"
+                android:src="@drawable/ic_tune"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:scrollbars="none">
+
+            <!-- Jumlah ditulis dari kode: "All (6)", "Lost (3)", ... -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_my_posts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="@dimen/space_8"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_my_all"
+                    style="@style/Widget.CampusFind.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/status_all" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_my_lost"
+                    style="@style/Widget.CampusFind.Chip.Lost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_lost" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_my_found"
+                    style="@style/Widget.CampusFind.Chip.Found"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_found" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_my_returned"
+                    style="@style/Widget.CampusFind.Chip.Returned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_returned" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/screen_padding">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_my_posts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_my_post" />
+
+                <include
+                    android:id="@+id/empty_state"
+                    layout="@layout/layout_empty_state"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_showing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                    tools:text="Showing 3 of 6 posts" />
+
+                <include
+                    android:id="@+id/pagination"
+                    layout="@layout/layout_pagination" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_post_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_padding"
+            android:text="@string/my_posts_new"
+            app:icon="@drawable/ic_auto_awesome"
+            app:iconGravity="textStart" />
+</LinearLayout>

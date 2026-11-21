@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing (kelipatan 4) -->
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+
+    <!-- Margin kiri-kanan layar (Figma: 16dp) -->
+    <dimen name="screen_padding">16dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="radius_small">12dp</dimen>
+    <dimen name="radius_medium">16dp</dimen>
+    <dimen name="radius_large">20dp</dimen>
+
+    <!-- Komponen -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="icon_button_size">48dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_size_small">18dp</dimen>
+    <dimen name="avatar_small">40dp</dimen>
+    <dimen name="avatar_medium">52dp</dimen>
+    <dimen name="avatar_large">72dp</dimen>
+    <dimen name="thumb_list">72dp</dimen>
+    <dimen name="bottom_nav_height">72dp</dimen>
+    <dimen name="fab_size">60dp</dimen>
+    <dimen name="detail_image_height">220dp</dimen>
+    <dimen name="chat_bubble_max_width">280dp</dimen>
+    <dimen name="chat_image_size">200dp</dimen>
+    <dimen name="photo_slot_size">112dp</dimen>
+</resources>

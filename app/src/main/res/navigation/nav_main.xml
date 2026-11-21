@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_home">
+    <fragment android:id="@+id/nav_home" android:name="com.example.myapplication.HomeFragment"
+        android:label="@string/nav_home" />
+    <fragment android:id="@+id/nav_search" android:name="com.example.myapplication.SearchFragment"
+        android:label="@string/nav_search" />
+    <fragment android:id="@+id/nav_chat" android:name="com.example.myapplication.ChatListFragment"
+        android:label="@string/nav_chat" />
+    <fragment android:id="@+id/nav_profile" android:name="com.example.myapplication.ProfileFragment"
+        android:label="@string/nav_profile" />
+</navigation>

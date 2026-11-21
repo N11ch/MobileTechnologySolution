@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/cf_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationsActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/space_8">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:layout_marginStart="@dimen/space_8"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_back"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="@string/notifications_title"
+                android:textAppearance="@style/TextAppearance.CampusFind.Title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_more"
+                app:layout_constraintStart_toEndOf="@id/btn_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_more"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:layout_marginEnd="@dimen/space_8"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_more"
+                android:src="@drawable/ic_more_vert"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/screen_padding">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <!-- Jumlah per tab (mis. Matches 1) bisa ditambah lewat BadgeDrawable dari kode -->
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cg_notif_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="@dimen/space_8"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_notif_all"
+                            style="@style/Widget.CampusFind.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/status_all" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_notif_matches"
+                            style="@style/Widget.CampusFind.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notif_filter_matches" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_notif_messages"
+                            style="@style/Widget.CampusFind.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notif_filter_messages" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_notif_status"
+                            style="@style/Widget.CampusFind.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notif_filter_status" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_notifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_notification" />
+
+                <include
+                    android:id="@+id/empty_state"
+                    layout="@layout/layout_empty_state"
+                    android:visibility="gone" />
+
+                <!-- Status push + ganti kampus -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.CampusFind.Card.Soft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    app:cardBackgroundColor="@color/cf_lavender_200">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_12">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/cf_blue_300"
+                            android:importantForAccessibility="no"
+                            android:padding="@dimen/space_8"
+                            android:src="@drawable/ic_notifications"
+                            app:tint="@color/cf_navy_900" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/notif_push_active"
+                                android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+                            <TextView
+                                android:id="@+id/tv_push_campus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                                tools:text="Kemanggisan Campus" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btn_change_campus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="@dimen/space_4"
+                            android:text="@string/notif_change"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                            android:textColor="@color/cf_navy_700" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

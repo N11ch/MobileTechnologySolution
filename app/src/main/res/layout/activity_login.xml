@@ -1,134 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cf_background"
     android:fillViewport="true"
-    android:background="#EEF2FF"
-    tools:context=".LoginActivity">
+    tools:context="com.example.myapplication.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.CampusFind.Card.Soft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_24"
+            app:cardBackgroundColor="@color/cf_lavender_100">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/space_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill"
+                    android:backgroundTint="@color/cf_blue_100"
+                    android:drawablePadding="@dimen/space_4"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:paddingVertical="@dimen/space_4"
+                    android:text="@string/login_badge"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Overline"
+                    android:textColor="@color/cf_navy_900"
+                    app:drawableStartCompat="@drawable/ic_shield"
+                    app:drawableTint="@color/cf_navy_900" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:text="@string/login_title"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Headline"
+                    android:textColor="@color/cf_ink" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:text="@string/login_subtitle"
+                    android:textAppearance="@style/TextAppearance.CampusFind.BodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- NIM / Email -->
+        <TextView
+            style="@style/Widget.CampusFind.FieldLabel"
+            android:layout_marginTop="@dimen/space_20"
+            android:text="@string/login_label_nim" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="username"
+                android:hint="@string/login_hint_nim"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password + Forgot -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16">
+
+            <TextView
+                style="@style/Widget.CampusFind.FieldLabel"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="0dp"
+                android:text="@string/login_label_password" />
+
+            <TextView
+                android:id="@+id/btn_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/space_4"
+                android:text="@string/login_forgot_password"
+                android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                android:textColor="@color/cf_navy_700"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="password"
+                android:hint="@string/login_hint_password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_login_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.CampusFind.BodySmall"
+            android:textColor="@color/cf_error"
+            android:visibility="gone"
+            tools:text="NIM or password is incorrect."
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:text="@string/login_sign_in"
+            app:icon="@drawable/ic_arrow_forward" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/cf_navy_700"
+            app:trackColor="@color/cf_lavender_100" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="24dp">
-            <com.google.android.material.card.MaterialCardView
+            android:layout_marginVertical="@dimen/space_20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"
+                android:background="@drawable/bg_divider_line" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/space_16"
+                android:text="@string/login_or"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"
+                android:background="@drawable/bg_divider_line" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sso"
+            style="@style/Widget.CampusFind.Button.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_sso"
+            app:icon="@drawable/ic_shield"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.CampusFind.Card.Soft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp"
-                app:strokeWidth="0dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_12">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_rounded_12"
+                    android:backgroundTint="@color/cf_found_soft"
+                    android:importantForAccessibility="no"
+                    android:padding="@dimen/space_8"
+                    android:src="@drawable/ic_school"
+                    app:tint="@color/cf_found_text" />
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-                    <!-- Brand Logo -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_gravity="center_horizontal"
-                        app:cardBackgroundColor="#4F46E5"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="2dp">
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_gravity="center"
-                            android:contentDescription="Logo CampusFind"
-                            android:src="@android:drawable/ic_menu_compass"
-                            app:tint="#FFFFFF" />
-                    </com.google.android.material.card.MaterialCardView>
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:text="CampusFind"
-                        android:textColor="#0F172A"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center"
-                        android:text="Pusat Informasi Barang Hilang dan Ditemukan Terintegrasi Kampus"
-                        android:textColor="#64748B"
+                        android:text="@string/login_community_title"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Label"
                         android:textSize="13sp" />
-                    <!-- Input Email SSO Mahasiswa -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:hint="Email Mahasiswa (.ac.id)"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusTopStart="12dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_login_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress"
-                            android:text="nanda.pratama@mhs.ui.ac.id" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <!-- Input NIM -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="NPM / NIM"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusTopStart="12dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_login_nim"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:text="2306198421" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <!-- Input Password -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Kata Sandi SSO"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:endIconMode="password_toggle">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_login_password"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPassword"
-                            android:text="12345678" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_login_sso"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Masuk dengan Akun Mahasiswa"
-                        android:textAllCaps="false"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="#4F46E5"
-                        app:cornerRadius="12dp" />
+                        android:text="@string/login_community_body"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-</ScrollView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:gravity="center"
+            android:text="@string/login_footer"
+            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

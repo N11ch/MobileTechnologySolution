@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.CampusFind.Heading" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/cf_navy_900</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">@color/cf_ink</item>
+    </style>
+
+    <style name="TextAppearance.CampusFind.Display" parent="TextAppearance.CampusFind.Heading">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/cf_ink</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Headline" parent="TextAppearance.CampusFind.Heading">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Title" parent="TextAppearance.CampusFind.Heading">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextAppearance.CampusFind.TitleSmall" parent="TextAppearance.CampusFind.Heading">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.CampusFind.BodyLarge" parent="TextAppearance.CampusFind.Body">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.CampusFind.BodySmall" parent="TextAppearance.CampusFind.Body">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/cf_ink_muted</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Caption" parent="TextAppearance.CampusFind.Body">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/cf_ink_muted</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Label" parent="TextAppearance.CampusFind.Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/cf_ink</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Overline" parent="TextAppearance.CampusFind.Body">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/cf_ink_muted</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Chip" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="TextAppearance.CampusFind.Badge" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- ===== Shapes ===== -->
+    <style name="ShapeAppearance.CampusFind.Small" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="ShapeAppearance.CampusFind.Medium" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="ShapeAppearance.CampusFind.Large" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+    <style name="ShapeAppearance.CampusFind.Pill" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- For ShapeableImageView -->
+    <style name="ShapeAppearanceOverlay.CampusFind.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.CampusFind.Rounded12" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.CampusFind.Rounded20" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.CampusFind.BottomSheet" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- ===== Buttons ===== -->
+    <style name="Widget.CampusFind.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Button</item>
+        <item name="android:textColor">@color/cf_on_dark</item>
+        <item name="backgroundTint">@color/cf_navy_700</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="iconTint">@color/cf_on_dark</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+    <style name="Widget.CampusFind.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Button</item>
+        <item name="android:textColor">@color/cf_navy_900</item>
+        <item name="backgroundTint">@color/cf_lavender_200</item>
+        <item name="iconTint">@color/cf_navy_900</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="Widget.CampusFind.Button.Light" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Button</item>
+        <item name="android:textColor">@color/cf_navy_700</item>
+        <item name="backgroundTint">@color/cf_surface</item>
+        <item name="iconTint">@color/cf_navy_700</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="Widget.CampusFind.Button.Danger" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Button</item>
+        <item name="android:textColor">@color/cf_lost_text</item>
+        <item name="backgroundTint">@color/cf_lost_soft</item>
+        <item name="iconTint">@color/cf_lost_text</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="Widget.CampusFind.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Label</item>
+        <item name="android:textColor">@color/cf_navy_700</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="Widget.CampusFind.IconButton" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="backgroundTint">@color/cf_lavender_100</item>
+        <item name="iconTint">@color/cf_navy_900</item>
+    </style>
+
+    <!-- ===== Inputs ===== -->
+    <style name="Widget.CampusFind.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/cf_surface</item>
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_medium</item>
+        <item name="startIconTint">@color/cf_ink_muted</item>
+        <item name="endIconTint">@color/cf_ink_muted</item>
+        <item name="errorIconDrawable">@null</item>
+    </style>
+    <style name="Widget.CampusFind.TextInputLayout.Dropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/cf_surface</item>
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_medium</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_medium</item>
+    </style>
+
+    <!-- ===== Cards ===== -->
+    <style name="Widget.CampusFind.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/cf_surface</item>
+        <item name="cardCornerRadius">@dimen/radius_large</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+    <style name="Widget.CampusFind.Card.Soft" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/cf_lavender_100</item>
+        <item name="cardCornerRadius">@dimen/radius_medium</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+    <style name="Widget.CampusFind.Card.Selectable" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@color/cf_surface</item>
+        <item name="cardCornerRadius">@dimen/radius_large</item>
+        <item name="strokeColor">@color/selectable_card_stroke</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="checkedIcon">@drawable/ic_check_circle</item>
+        <item name="checkedIconTint">@color/cf_navy_900</item>
+    </style>
+
+    <!-- ===== Chips ===== -->
+    <style name="Widget.CampusFind.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Chip</item>
+        <item name="android:textColor">@color/chip_text_default</item>
+        <item name="chipBackgroundColor">@color/chip_bg_default</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipMinHeight">48dp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconTint">@null</item>
+    </style>
+    <style name="Widget.CampusFind.Chip.Lost" parent="Widget.CampusFind.Chip.Filter">
+        <item name="android:textColor">@color/cf_lost_text</item>
+        <item name="chipBackgroundColor">@color/chip_bg_lost</item>
+    </style>
+    <style name="Widget.CampusFind.Chip.Found" parent="Widget.CampusFind.Chip.Filter">
+        <item name="android:textColor">@color/cf_found_text</item>
+        <item name="chipBackgroundColor">@color/chip_bg_found</item>
+    </style>
+    <style name="Widget.CampusFind.Chip.Returned" parent="Widget.CampusFind.Chip.Filter">
+        <item name="android:textColor">@color/cf_returned_text</item>
+        <item name="chipBackgroundColor">@color/chip_bg_returned</item>
+    </style>
+    <!-- Non-checkable pill: recent searches, quick replies -->
+    <style name="Widget.CampusFind.Chip.Suggestion" parent="Widget.Material3.Chip.Assist">
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Chip</item>
+        <item name="android:textColor">@color/cf_navy_900</item>
+        <item name="chipBackgroundColor">@color/cf_surface</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipCornerRadius">18dp</item>
+        <item name="chipIconTint">@color/cf_ink_muted</item>
+    </style>
+
+    <!-- ===== Badges (status pills) ===== -->
+    <style name="Widget.CampusFind.Badge" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Badge</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.CampusFind.Badge.Lost">
+        <item name="android:background">@drawable/bg_badge_lost</item>
+        <item name="android:textColor">@color/cf_lost_text</item>
+    </style>
+    <style name="Widget.CampusFind.Badge.Found">
+        <item name="android:background">@drawable/bg_badge_found</item>
+        <item name="android:textColor">@color/cf_found_text</item>
+    </style>
+    <style name="Widget.CampusFind.Badge.Returned">
+        <item name="android:background">@drawable/bg_badge_returned</item>
+        <item name="android:textColor">@color/cf_returned_text</item>
+    </style>
+
+    <!-- ===== Navigation / containers ===== -->
+    <style name="Widget.CampusFind.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/bg_bottom_nav</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.CampusFind.BottomNav.Indicator</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="elevation">12dp</item>
+    </style>
+    <style name="Widget.CampusFind.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.CampusFind.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/cf_background</item>
+        <item name="titleTextAppearance">@style/TextAppearance.CampusFind.Title</item>
+        <item name="titleTextColor">@color/cf_navy_900</item>
+        <item name="navigationIconTint">@color/cf_ink</item>
+    </style>
+
+    <!-- Segmented control built from a TabLayout (Search status tabs) -->
+    <style name="Widget.CampusFind.TabLayout.Segment" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@drawable/bg_tab_segment</item>
+        <item name="tabIndicator">@drawable/bg_tab_indicator_pill</item>
+        <item name="tabIndicatorGravity">stretch</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+        <item name="tabIndicatorColor">@null</item>
+        <item name="tabRippleColor">@null</item>
+        <item name="tabSelectedTextColor">@color/cf_on_dark</item>
+        <item name="tabTextColor">@color/cf_ink_muted</item>
+        <item name="tabTextAppearance">@style/TextAppearance.CampusFind.Chip</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+    </style>
+
+    <!-- Dots for ViewPager2 (onboarding, photo carousel) -->
+    <style name="Widget.CampusFind.TabLayout.Dots" parent="Widget.Material3.TabLayout">
+        <item name="tabBackground">@drawable/selector_indicator_dot</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">6dp</item>
+        <item name="tabPaddingEnd">6dp</item>
+        <item name="tabMinWidth">0dp</item>
+        <item name="tabGravity">center</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabRippleColor">@null</item>
+    </style>
+
+    <style name="Widget.CampusFind.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="backgroundTint">@color/cf_background</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.CampusFind.BottomSheet</item>
+    </style>
+
+    <!-- Section label above a form field -->
+    <style name="Widget.CampusFind.FieldLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/space_8</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Label</item>
+    </style>
+
+    <style name="Widget.CampusFind.Pagination" parent="">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_marginHorizontal">@dimen/space_4</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.CampusFind.Label</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+</resources>

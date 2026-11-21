@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_gradient"
+    tools:context=".SplashActivity">
+
+        <FrameLayout
+            android:id="@+id/logo_tile"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:background="@drawable/bg_logo_tile_large"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_logo_mark" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.CampusFind.Headline"
+            app:layout_constraintBottom_toTopOf="@id/tv_tagline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo_tile" />
+
+        <TextView
+            android:id="@+id/tv_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@string/splash_tagline"
+            android:textAppearance="@style/TextAppearance.CampusFind.Body"
+            android:textColor="@color/cf_navy_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
+
+        <!-- Indikator loading (3 titik). Animasikan dari kode jika perlu. -->
+        <LinearLayout
+            android:id="@+id/loading_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_24"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/tv_students_only"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="4dp"
+                android:background="@drawable/bg_circle" android:backgroundTint="@color/cf_navy_700" />
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="4dp"
+                android:background="@drawable/bg_circle" android:backgroundTint="@color/cf_found_bg" />
+            <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="4dp"
+                android:background="@drawable/bg_circle" android:backgroundTint="@color/cf_navy_700" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_students_only"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_32"
+            android:background="@drawable/bg_pill"
+            android:drawablePadding="@dimen/space_8"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingVertical="@dimen/space_8"
+            android:text="@string/splash_students_only"
+            android:textAppearance="@style/TextAppearance.CampusFind.Label"
+            android:textColor="@color/cf_navy_900"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_shield"
+            app:drawableTint="@color/cf_navy_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

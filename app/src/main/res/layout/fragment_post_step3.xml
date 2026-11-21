@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Post Step 3: lokasi (OPSIONAL), kampus, tanggal & jam, match alerts. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/space_16"
+    tools:context=".PostStep3Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/screen_padding">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/post_where_when"
+                android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/cf_lavender_100"
+                android:paddingHorizontal="@dimen/space_12"
+                android:paddingVertical="@dimen/space_4"
+                android:text="@string/post_step_3_of_3"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                android:textColor="@color/cf_navy_700" />
+        </FrameLayout>
+
+        <!-- Peta pratinjau (lite mode) + tombol GPS -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.CampusFind.Card"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="@dimen/space_12">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_map_placeholder">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/map_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:liteMode="true" />
+
+                <TextView
+                    android:id="@+id/tv_map_campus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="@dimen/space_8"
+                    android:background="@drawable/bg_pill"
+                    android:drawablePadding="@dimen/space_4"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:paddingVertical="@dimen/space_4"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                    android:textColor="@color/cf_navy_900"
+                    android:textSize="12sp"
+                    app:drawableStartCompat="@drawable/ic_school"
+                    app:drawableTint="@color/cf_navy_700"
+                    tools:text="BINUS Kemanggisan" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_use_gps"
+                    style="@style/Widget.CampusFind.Button.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/space_8"
+                    android:minHeight="0dp"
+                    android:text="@string/post_use_gps"
+                    app:icon="@drawable/ic_my_location"
+                    app:iconGravity="textStart" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:layout_marginBottom="@dimen/space_8">
+
+            <TextView
+                style="@style/Widget.CampusFind.FieldLabel"
+                android:layout_marginBottom="0dp"
+                android:text="@string/post_selected_campus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/post_region"
+                android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                android:textColor="@color/cf_navy_700"
+                android:textSize="12sp" />
+        </FrameLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_campus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/space_8"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_post_kemanggisan"
+                style="@style/Widget.CampusFind.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/campus_kemanggisan" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_post_alam_sutera"
+                style="@style/Widget.CampusFind.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/campus_alam_sutera" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_post_bekasi"
+                style="@style/Widget.CampusFind.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/campus_bekasi" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Lokasi terakhir / ditemukan : OPSIONAL. Label diganti dari kode: Lost = "Last seen at", Found = "Found at" -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:layout_marginBottom="@dimen/space_8">
+
+            <TextView
+                android:id="@+id/tv_spot_label"
+                style="@style/Widget.CampusFind.FieldLabel"
+                android:layout_marginBottom="0dp"
+                android:text="@string/post_spot_label_found" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/post_optional"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                android:textColor="@color/cf_navy_700" />
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_spot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_navigation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_spot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/post_hint_spot"
+                android:imeOptions="actionDone"
+                android:inputType="textCapSentences" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/Widget.CampusFind.FieldLabel"
+            android:layout_marginTop="@dimen/space_16"
+            android:text="@string/post_date_time" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_date"
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_8"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_12">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_rounded_12"
+                        android:backgroundTint="@color/cf_lavender_100"
+                        android:importantForAccessibility="no"
+                        android:padding="@dimen/space_8"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="@color/cf_navy_700" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/post_date"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                            tools:text="Today, 24 Oct" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_time"
+                style="@style/Widget.CampusFind.Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_12">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_rounded_12"
+                        android:backgroundTint="@color/cf_lavender_100"
+                        android:importantForAccessibility="no"
+                        android:padding="@dimen/space_8"
+                        android:src="@drawable/ic_schedule"
+                        app:tint="@color/cf_navy_700" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/post_time"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                            tools:text="14:30 WIB" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Match alerts -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.CampusFind.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_12">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/cf_blue_100"
+                    android:importantForAccessibility="no"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_notifications"
+                    app:tint="@color/cf_navy_700" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/post_match_alerts"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Label" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/post_match_alerts_sub"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Caption" />
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/sw_match_alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/cf_background"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chat_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cf_background"
+            android:elevation="2dp"
+            android:paddingVertical="@dimen/space_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:layout_marginStart="@dimen/space_4"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_back"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_peer_avatar"
+                android:layout_width="@dimen/avatar_small"
+                android:layout_height="@dimen/avatar_small"
+                android:background="@color/cf_navy_900"
+                android:contentDescription="@string/cd_profile_photo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person"
+                app:contentPadding="@dimen/space_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Circle"
+                app:tint="@color/cf_on_dark" />
+
+            <TextView
+                android:id="@+id/tv_peer_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_12"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall"
+                app:layout_constraintBottom_toTopOf="@id/tv_peer_status"
+                app:layout_constraintEnd_toStartOf="@id/btn_more"
+                app:layout_constraintStart_toEndOf="@id/iv_peer_avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Dimas Area" />
+
+            <TextView
+                android:id="@+id/tv_peer_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_12"
+                android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_more"
+                app:layout_constraintStart_toEndOf="@id/iv_peer_avatar"
+                app:layout_constraintTop_toBottomOf="@id/tv_peer_name"
+                tools:text="Active conversation" />
+
+            <ImageButton
+                android:id="@+id/btn_more"
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_more"
+                android:src="@drawable/ic_more_vert"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cf_ink_muted" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_item_context"
+            style="@style/Widget.CampusFind.Card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_8"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/radius_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_8">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_item_photo"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_image_placeholder"
+                    android:contentDescription="@string/cd_item_photo"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Rounded12" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_item_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:maxWidth="150dp"
+                            android:textAppearance="@style/TextAppearance.CampusFind.TitleSmall"
+                            android:textSize="14sp"
+                            tools:text="Black Leather Wallet" />
+
+                        <TextView
+                            android:id="@+id/tv_item_status"
+                            style="@style/Widget.CampusFind.Badge.Found"
+                            android:layout_marginStart="@dimen/space_8"
+                            android:paddingVertical="2dp"
+                            android:textSize="10sp"
+                            tools:text="Found" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_item_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/space_4"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+                        app:drawableStartCompat="@drawable/ic_location"
+                        app:drawableTint="@color/cf_navy_700"
+                        tools:text="Library 3rd Floor" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_item"
+                    style="@style/Widget.CampusFind.Button.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:minHeight="0dp"
+                    android:text="@string/chat_view"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_arrow_forward"
+                    app:iconGravity="textEnd" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_messages"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingVertical="@dimen/space_8"
+            app:layout_constraintBottom_toTopOf="@id/tv_typing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_item_context"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_message_incoming" />
+
+        <TextView
+            android:id="@+id/tv_typing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginBottom="@dimen/space_8"
+            android:background="@drawable/bg_pill"
+            android:backgroundTint="@color/cf_lavender_100"
+            android:paddingHorizontal="@dimen/space_12"
+            android:paddingVertical="@dimen/space_4"
+            android:textAppearance="@style/TextAppearance.CampusFind.Caption"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/cg_quick_scroll"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Dimas is typing ●●●"
+            tools:visibility="visible" />
+
+        <HorizontalScrollView
+            android:id="@+id/cg_quick_scroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/space_12"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/group_photo_preview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_quick_replies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="@dimen/space_8"
+                app:singleLine="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_quick_1"
+                    style="@style/Widget.CampusFind.Chip.Suggestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_quick_where" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_quick_2"
+                    style="@style/Widget.CampusFind.Chip.Suggestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_quick_thanks" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_quick_3"
+                    style="@style/Widget.CampusFind.Chip.Suggestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_quick_on_my_way" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/group_photo_preview"
+            style="@style/Widget.CampusFind.Card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_12"
+            android:layout_marginBottom="@dimen/space_4"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/radius_medium"
+            app:layout_constraintBottom_toTopOf="@id/input_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_8">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_preview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_image_placeholder"
+                    android:contentDescription="@string/cd_item_photo"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CampusFind.Rounded12" />
+
+                <TextView
+                    android:id="@+id/tv_preview_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_12"
+                    android:layout_weight="1"
+                    android:ellipsize="middle"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Label"
+                    android:textSize="13sp"
+                    tools:text="IMG_2023.jpg" />
+
+                <ImageButton
+                    android:id="@+id/btn_remove_preview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/cd_remove_photo"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/cf_ink_muted" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Input -->
+        <LinearLayout
+            android:id="@+id/input_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cf_surface"
+            android:elevation="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_attach"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/cf_lavender_100"
+                android:contentDescription="@string/cd_attach_photo"
+                android:src="@drawable/ic_add"
+                app:tint="@color/cf_navy_700" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_8"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chat_input"
+                android:backgroundTint="@color/cf_lavender_100"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/space_16"
+                android:paddingEnd="@dimen/space_8">
+
+                <EditText
+                    android:id="@+id/et_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/chat_type_message"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="4"
+                    android:minHeight="48dp"
+                    android:textAppearance="@style/TextAppearance.CampusFind.Body"
+                    android:textColorHint="@color/cf_hint" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mood"
+                    app:tint="@color/cf_ink_muted" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_send"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/cf_navy_900"
+                android:contentDescription="@string/cd_send"
+                android:src="@drawable/ic_send"
+                app:tint="@color/cf_on_dark" />
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
